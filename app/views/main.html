@@ -1,0 +1,118 @@
+<div class="wrapper" >
+  <ng-include src="'views/header.html'"></ng-include>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+      Дома
+      <small> </small>
+      </h1>
+    </section>
+
+    <section class="content">
+                <!-- Small boxes (Stat box) -->
+          <div class="row">
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                  <h3>{{signIn}}</h3>
+                  <p>Примени</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-sign-in"></i>
+                </div>
+                <a href="#/viewIn" class="small-box-footer">Прегледај <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>{{servis}}</h3>
+                  <p>На сервис</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-cogs"></i>
+                </div>
+                <a href="#/viewServis" class="small-box-footer">Прегледај <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-blue">
+                <div class="inner">
+                  <h3>{{back}}</h3>
+                  <p>Вратени од сервис</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-sign-out"></i>
+                </div>
+                <a href="#/viewBack" class="small-box-footer">Прегледај <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>{{finished}}</h3>
+                  <p>Завршени</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-check-square-o"></i>
+                </div>
+                <a href="#/viewFinish" class="small-box-footer">Прегледај <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+          </div><!-- /.row -->
+                    <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Сите записи</h3>
+                  <div class="box-tools">
+                    <div class="input-group">
+                      <input type="text" name="table_search" class="form-control input-sm pull-right" ng-model="search" style="width: 150px;" placeholder="Search"/>
+                      <div class="input-group-btn">
+                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                  <table class="table table-hover">
+                    <tr>
+                      <th>#</th>
+                      <th>Корисник</th>
+                      <th>Датум</th>
+                      <th>IMEI</th>
+                      <th>Статус</th>
+                      <th>Опис</th>
+                    </tr>
+                    <tr dir-paginate="item in data | filter:search | itemsPerPage: 5 " pagination-id="pagination" ng-click="viewItem(item.id)">
+                      <td>{{item.id}}</td>
+                      <td>{{item.fname}} {{item.lname}}</td>
+                      <td>{{item.date1 | date : 'dd.MM.yyyy'}}</td>
+                      <td>{{item.imei}}</td>
+                      <td>
+                          <span ng-show="{{item.status}} == 1" class="label label-info">Прием</span>
+                          <span ng-show="{{item.status}} == 2" class="label label-warning">Сервис</span>
+                          <span ng-show="{{item.status}} == 3" class="label label-primary">Вратено од сервис</span>
+                          <span ng-show="{{item.status}} == 4" class="label label-success">Завршено</span>
+                      </td>
+                      <td>{{item.description}}</td>
+                    </tr>
+                  </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix text-right">
+                  <dir-pagination-controls boundary-links="true" pagination-id="pagination"></dir-pagination-controls>
+            </div>
+              </div><!-- /.box -->
+            </div>
+          </div>
+    </section>
+
+    <div class="clearfix"></div>
+  </div>
+  <!-- <ng-include src="'views/footer.html'"></ng-include> -->
+</div>

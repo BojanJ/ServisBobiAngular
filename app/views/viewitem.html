@@ -1,0 +1,119 @@
+      <div class="wrapper" >
+  <ng-include src="'views/header.html'" ></ng-include>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Сметка
+            <small>#{{id}}</small>
+          </h1>
+        </section>
+
+<!--         <div class="pad margin no-print">
+          <div class="callout callout-info" style="margin-bottom: 0!important;">
+            <h4><i class="fa fa-info"></i> Informacija:</h4>
+            This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+          </div>
+        </div> -->
+
+        <!-- Main content -->
+        <section class="invoice">
+          <!-- title row -->
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="page-header">
+                <i class="fa fa-cogs"></i> Сервис
+                <!-- <small class="pull-right">Date: 2/10/2014</small> -->
+              </h2>
+            </div><!-- /.col -->
+          </div>
+          <!-- info row -->
+          <div class="row invoice-info">
+            <div class="col-sm-4 invoice-col">
+              Од
+              <address>
+                <strong>Сервис</strong><br>
+                Улица: <br>
+                1000 Скопје<br>
+                Телефон: (804) 123-5432<br>
+                Email: info@almasaeedstudio.com
+              </address>
+            </div><!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+              До
+              <address>
+                <strong>{{data.fname}} {{data.lname}}</strong><br>
+                Телефон: {{data.tel}}<br>
+                Email: {{data.email}}
+              </address>
+            </div><!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+              <b>Сметка #{{id}}</b><br>
+              <br>
+              <b>Статус:</b> <span ng-show="checkStatus() == 1" class="label label-info">Прием</span>
+	                          <span ng-show="checkStatus() == 2" class="label label-warning">Сервис</span>
+	                          <span ng-show="checkStatus() == 3" class="label label-primary">Вратено од сервис</span>
+	                          <span ng-show="checkStatus() == 4" class="label label-success">Завршено</span>
+                          <br>
+              <b>Датум од:</b> {{data.date1 | date}}<br>
+              <b>Датум до:</b> {{data.date2 | date}}<br>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <!-- Table row -->
+          <div class="row">
+            <div class="col-xs-12 table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Тип</th>
+                    <th>Модел</th>
+                    <th>IMEI</th>
+                    <th>Cena</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{data.id}}</td>
+                    <td>{{data.type}}</td>
+                    <td>{{data.model}}</td>
+                    <td>{{data.imei}}</td>
+                    <td>{{data.price}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-xs-6">
+              <p class="lead">Опис:</p>
+              
+              <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+              </p>
+            </div><!-- /.col -->
+            <!-- accepted payments column -->
+            <div class="col-xs-6 hidden-print">
+              <p class="lead">Забелешка:</p>
+              
+              <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+              </p>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <!-- this row will not appear when printing -->
+          <div class="row no-print">
+            <div class="col-xs-12">
+              <a data-toggle="offcanvas" ng-click="print();" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <button class="btn btn-success pull-right" ng-click="edit(data.id)"><i class="fa fa-pencil-square-o"></i> Измени Сметка</button>
+            </div>
+          </div>
+        </section><!-- /.content -->
+        <div class="clearfix"></div>
+      </div><!-- /.content-wrapper -->
+      </div>

@@ -1,0 +1,109 @@
+<div class="wrapper" >
+  <ng-include src="'views/header.html'"></ng-include>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+      Внеси запис
+      <small> </small>
+      </h1>
+    </section>
+            <section class="content">
+              <div class="row">
+                <div class="col-md-12">
+                  <!-- Horizontal Form -->
+                  <div class="box box-info">
+                    <div class="box-header with-border">
+                      <h3 class="box-title"></h3>
+                      </div><!-- /.box-header -->
+                      <!-- form start -->
+                      <form class="form-horizontal">
+                        <div class="box-body">
+                          <div class="form-group col-md-6 col-md-6">
+                            <label for="fname" class="col-sm-2 control-label">Име</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="fname" placeholder="Име" ng-model="data.fname">
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="lname" class="col-sm-2 control-label">Презиме</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="lname" placeholder="Презиме" ng-model="data.lname">
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="tel" class="col-sm-2 control-label">Телефон</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="tel" placeholder="Телефон" ng-model="data.tel">
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="type" class="col-sm-2 control-label">Тип</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="type" ng-model="data.type" bs-options="type for type in types" placeholder="Тип" bs-typeahead>
+                              <!-- <input type="text" class="form-control" id="type" placeholder="Тип" ng-model="data.type"> -->
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="model" class="col-sm-2 control-label">Модел</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="model" ng-model="data.model" bs-options="model for model in models" placeholder="Модел" bs-typeahead>
+                              <!-- <input type="text" class="form-control" id="model" placeholder="Модел" ng-model="data.model"> -->
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="imei" class="col-sm-2 control-label">IEMI</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="imei" placeholder="IEMI" ng-model="data.imei">
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="issue" class="col-sm-2 control-label">Проблем</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="issue" placeholder="Проблем" ng-model="data.issue">
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="description" class="col-sm-2 control-label">Опис</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="description" placeholder="Опис" ng-model="data.description">
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="date1" class="col-sm-2 control-label">Датум од</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="date1" placeholder="Датум од" ng-model="data.date1" bs-datepicker>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="date2" class="col-sm-2 control-label">Датум до</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="date2" placeholder="Датум до" ng-model="data.date2" bs-datepicker>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="info" class="col-sm-2 control-label">Забелешка</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="info" placeholder="Забелешка" ng-model="data.info">
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="price" class="col-sm-2 control-label">Цена</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="price" placeholder="Цена" ng-model="data.price">
+                            </div>
+                          </div>
+                          </div><!-- /.box-body -->
+                          <div class="box-footer">
+                            <button type="reset" class="btn btn-default">Откажи</button>
+                            <button type="submit" class="btn btn-success pull-right" ng-click="save()">Зачувај</button>
+                            </div><!-- /.box-footer -->
+                          </form>
+                          </div><!-- /.box -->
+                        </div>
+                      </div>
+                    </section>
+                    <div class="clearfix"></div>
+  </div>
+  <!-- <ng-include src="'views/footer.html'"></ng-include> -->
+</div>

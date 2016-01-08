@@ -1,0 +1,107 @@
+
+<header class="main-header " >
+  <!-- Logo -->
+  <a href="#/" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <!-- <span class="logo-mini"><b>Г</b>МК</span> -->
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg"> <i class="fa fa-cogs"></i> Сервис</span>
+  </a>
+  <!-- Header Navbar: style can be found in header.less -->
+  <nav class="navbar navbar-static-top" role="navigation">
+    <!-- Sidebar toggle button-->
+    <a href="" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <!-- User Account: style can be found in dropdown.less -->
+        <li class="dropdown user user-menu">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">
+            <img src="images/avatar5.png" class="user-image" alt="User Image"/>
+            <span class="hidden-xs">{{username | uppercase}}</span>
+          </a>
+          <ul class="dropdown-menu">
+            <!-- User image -->
+            <li class="user-header">
+              <img src="images/avatar5.png" class="img-circle" alt="User Image" />
+              <p>
+                {{username | uppercase}} - {{role}}
+                <small>Сервис</small>
+              </p>
+            </li>
+            <li class="user-footer">
+              <div class="pull-right">
+                <a ng-click="logOut()" class="btn btn-default btn-flat">Одјави се</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!-- =============================================== -->
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar no-print">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar no-print">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="images/avatar5.png" class="img-circle" alt="User Image" />
+      </div>
+      <div class="pull-left info">
+        <p>{{username | uppercase}}</p>
+        <a href=""><i class="fa fa-circle text-success"></i> {{role}}</a>
+      </div>
+    </div>
+    <ul class="sidebar-menu"  ng-controller="HeaderCtrl">
+      <li class="header">ГЛАВНО МЕНИ</li>
+      	<li ng-class="{ active: isActive('/main')}">
+	      	<a href="#/main">
+		    	<i class="fa fa-home"></i> <span>Дома</span>
+		    </a>
+	    </li>
+      	<li ng-class="{ active: isActive('/insert')}">
+	      	<a href="#/insert">
+		    	<i class="fa fa-plus"></i> <span>Додади</span>
+		    </a>
+	    </li>
+
+      <li class="header">ПРЕГЛЕД</li>
+      	<li ng-class="{ active: isActive('/viewIn')}">
+	      	<a href="#/viewIn">
+		    	<i class="fa fa-sign-in"></i> <span>Примени</span>
+		    </a>
+	    </li>
+      	<li ng-class="{ active: isActive('/viewServis')}">
+	      	<a href="#/viewServis">
+		    	<i class="fa fa-cogs"></i> <span>На сервис</span>
+		    </a>
+	    </li>
+      	<li ng-class="{ active: isActive('/viewBack')}">
+	      	<a href="#/viewBack">
+		    	<i class="fa fa-sign-out"></i> <span>Вратени од сервис</span>
+		    </a>
+	    </li>
+      	<li ng-class="{ active: isActive('/viewFinish')}">
+	      	<a href="#/viewFinish">
+		    	<i class="fa fa-check-square-o"></i> <span>Завршени</span>
+		    </a>
+	    </li>
+      <li class="header" ng-show="isAdmin">АДМИН</li>
+      	<li ng-class="{ active: isActive('/register')}" ng-show="isAdmin">
+	      	<a href="#/register">
+		    	<i class="fa fa-home"></i> <span>Додади корисник</span>
+		    </a>
+	    </li>
+	</ul>
+</section>
+<div class="clearfix"></div>
+<!-- /.sidebar -->
+</aside>
+<script src="/scripts/LTEapp.js"></script>

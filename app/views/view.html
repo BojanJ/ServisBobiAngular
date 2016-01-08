@@ -1,0 +1,66 @@
+<div class="panel">
+<div class="col-md-6">
+  <h2 class="panel-title">Запис број #{{id}}</h2>
+  <h3>Име: {{viewData.fname}} {{viewData.lname}}</h3>
+  <h3>Телефон: {{viewData.tel}}</h3>
+  <h3>Тип: {{viewData.type}}</h3>
+  <h3>Модел: {{viewData.model}}</h3>
+  <h3>Imei: {{viewData.imei}}</h3>
+  <h3>Проблем: {{viewData.issue}}</h3>
+  </div>
+  <div class="col-md-6 text-right">
+    <h3>Датум: {{viewData.date1 | date:"MM.dd.yyyy"}} - {{viewData.date2 | date:"MM.dd.yyyy"}}</h3>
+  </div>
+</div>
+
+  <button type="button" onclick="window.print()" class="btn btn-primary col-md-2 col-md-offset-1 hidden-print"> <span class="glyphicon glyphicon-print"> </span> испринтај</button>
+<!--   <div class="panel panel-primary" ng-show="isLoaded">
+    <div class="panel-heading">
+      <h3 class="panel-title">Запис број #{{id}}</h3>
+      <span class="label label-info">Info</span>
+    </div>
+    <div class="panel-body">
+<div class="col-md-12">
+<div class="col-md-6">
+<ul class="list-group">
+  <li class="list-group-item"><span class="list-info">Име: </span>{{viewData.fname}} {{viewData.lname}}</li>
+  <li class="list-group-item"><span class="list-info">Телефон: </span>{{viewData.tel}}</li>
+</ul>
+</div>
+<div class="col-md-6">
+<ul class="list-group">
+  <li class="list-group-item"><span class="list-info">Цена: </span>{{viewData.price}}</li>
+  <li class="list-group-item"><span class="list-info">Датум: </span>{{viewData.date1 | date:"MM.dd.yyyy"}} - {{viewData.date2 | date:"MM.dd.yyyy"}}</li>
+</ul>
+</div>
+</div>
+<div class="col-md-12">
+<div class="col-md-6">
+<ul class="list-group">
+  <li class="list-group-item"><span class="list-info">Тип: </span>{{viewData.type}}</li>
+  <li class="list-group-item"><span class="list-info">Модел: </span>{{viewData.model}}</li>
+  <li class="list-group-item"><span class="list-info">Imei: </span>{{viewData.imei}}</li>
+  <li class="list-group-item"><span class="list-info">Проблем: </span>{{viewData.issue}}</li>
+</ul>
+</div>
+<div class="col-md-6">
+<div class="list-group">
+  <a class="list-group-item">
+    <h4 class="list-group-item-heading">Опис на поправка</h4>
+    <p class="list-group-item-text">{{viewData.description}}</p>
+  </a>
+
+  <a class="list-group-item hidden-print">
+    <h4 class="list-group-item-heading">Забелешка</h4>
+    <p class="list-group-item-text">{{viewData.info}}</p>
+  </a>
+</div>
+</div>
+</div>
+<div class="col-md-12">
+  <button type="button" onclick="window.print()" class="btn btn-primary col-md-2 col-md-offset-1 hidden-print"> <span class="glyphicon glyphicon-print"> </span> испринтај</button>
+<button type="button" ng-click="delete(viewData.id)" class="btn btn-danger col-md-2 col-md-offset-2 hidden-print"> <span class="glyphicon glyphicon-ok"></span> завршено</button> 
+  <button type="button" ng-click="edit(viewData.id)" class="btn btn-success col-md-2 col-md-offset-6 hidden-print"> <span class="glyphicon glyphicon-edit"></span> измени</button>
+</div>
+</div>
+</div> -->
