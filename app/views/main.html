@@ -6,6 +6,9 @@
       <h1>
       Дома
       <small> </small>
+      <span class="pull-right">
+              <button class="btn btn-primary pull-right" ng-click="exportgroupedData();"> <i class="fa fa-file-excel-o"></i>  Export </button>
+      </span>
       </h1>
     </section>
 
@@ -89,7 +92,7 @@
                       <th>Статус</th>
                       <th>Опис</th>
                     </tr>
-                    <tr dir-paginate="item in data | filter:search | itemsPerPage: 5 " pagination-id="pagination" ng-click="viewItem(item.id)">
+                    <tr dir-paginate="item in data | filter:search | itemsPerPage: 10 " pagination-id="pagination" ng-click="viewItem(item.id)">
                       <td>{{item.id}}</td>
                       <td>{{item.fname}} {{item.lname}}</td>
                       <td>{{item.date1 | date : 'dd.MM.yyyy'}}</td>
@@ -108,6 +111,7 @@
                   <dir-pagination-controls boundary-links="true" pagination-id="pagination"></dir-pagination-controls>
             </div>
               </div><!-- /.box -->
+              <button class="btn btn-primary pull-right" ng-click="exportData();"> <i class="fa fa-file-excel-o"></i>  Export </button>
             </div>
           </div>
     </section>

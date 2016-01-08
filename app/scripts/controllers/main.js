@@ -39,55 +39,46 @@ angular.module('servisApp')
                     }
                 };
 
+        $scope.groupedData = [
+            {'signIn': $scope.signIn,
+            'servis': $scope.servis,
+            'back': $scope.back,
+            'finished': $scope.finished}
+        ];
+
             }).
             error(function(data, status) {
 
             });
 
-            
+
+
+        $scope.exportgroupedData = function () {
+            alasql('SELECT signIn as Primeni, servis as NaServis, back as VrateniOdServis, finished as Zavrsheni INTO XLSX("IzvestajVkupen.xlsx",{headers:true}) FROM ?',[$scope.groupedData]);
+        };
 
         $scope.viewItem = function (id){
             console.log(id);
                 $location.path('/viewItem/'+id);
-        }
+        };
 
-    	// $scope.isLoaded = false;
 
-     //    $scope.save = function(item) {
-     //        item.imei = parseInt(item.imei);
-     //        item.isFinished = 0;
+        $scope.exportData = function () {
 
-     //        console.log(item);
+            for (var i = 0; i < $scope.data.length; i++) {
+                if($scope.data[i].status == 1) {
+                    $scope.data[i].status = 'Прием';
+                } else if ($scope.data[i].status == 2) {
+                    $scope.data[i].status = 'На сервис';
+                } else if ($scope.data[i].status == 3) {
+                    $scope.data[i].status = 'Вратен од сервис';
+                } else if ($scope.data[i].status == 4) {
+                    $scope.data[i].status = 'Завршено';
+                }
+            };
 
-     //        $http.post('http://api.janevski.info/api/ServisItems', item).
-     //        success(function(data) {
-     //            $scope.data = data;
-     //        }).
-     //        error(function(data, status) {});
-     //    }
-
-     //    $scope.cancel = function () {
-     //    	$route.reload();
-     //    }
-
-     //    $http.get('http://api.janevski.info/api/ServisItems?param=model').
-     //    success(function(data) {
-     //        $scope.models = data;
-
-     //        $http.get('http://api.janevski.info/api/ServisItems?param=type').
-     //        success(function(data) {
-     //            $scope.types = data;
-     //            $scope.isLoaded = true;
-     //        }).
-     //        error(function(data, status) {
-
-     //        });
-     //    }).
-     //    error(function(data, status) {
-     //    	if (status == 401){
-     //    		authService.logOut();
-     //    	}
-     //    });
+            alasql('SELECT id as ID, fname as Ime, lname as Prezime, tel as Telefon, type as Tip, model as Model, issue as Problem, price as Cena, imei as IMEI, status as Status INTO XLSX("Izvestaj.xlsx",{headers:true}) FROM ?',[$scope.data]);
+        };
 
 
     });

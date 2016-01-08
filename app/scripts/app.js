@@ -84,6 +84,14 @@ angular
               controller: 'PrintCtrl',
               controllerAs: 'print'
             })
+            .when('/printitem/:Id', {
+              templateUrl: 'views/printitem.html',
+              controller: 'PrintitemCtrl'
+            })
+            .when('/reports', {
+              templateUrl: 'views/reports.html',
+              controller: 'ReportsCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });

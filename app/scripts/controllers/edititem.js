@@ -8,9 +8,14 @@
  * Controller of the servisApp
  */
 angular.module('servisApp')
-    .controller('EdititemCtrl', function($scope, $routeParams, $http, toastr, $location, localStorageService) {
+    .controller('EdititemCtrl', function($scope, $routeParams, $http, toastr, $location, localStorageService, $rootScope) {
 
         $scope.id = $routeParams.Id;
+
+            $scope.isAdmin = false;
+            if($rootScope.username == "bobi"){
+                $scope.isAdmin = true;
+            }
 
         $scope.data = {};
         $http.get('http://api.janevski.info/api/ServisItems/' + $scope.id).
@@ -60,6 +65,9 @@ angular.module('servisApp')
     	}).error(function(data){
     		toastr.error('Статусот не е променет');
     	});
+
+
+
 
 
     }

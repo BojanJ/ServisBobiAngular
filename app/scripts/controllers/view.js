@@ -21,4 +21,8 @@ angular.module('servisApp')
 
         });
 
+        
+        $scope.exportData = function () {
+            alasql('SELECT id as ID, fname as Ime, lname as Prezime, tel as Telefon, type as Tip, model as Model, issue as Problem, price as Cena, imei as IMEI, status as Status INTO XLSX("Report.xlsx",{headers:true}) FROM ?',[$scope.data]);
+        };
     });

@@ -1,22 +1,3 @@
-      <div class="wrapper" >
-  <ng-include src="'views/header.html'" ></ng-include>
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            Сметка
-            <small>#{{id}}</small>
-          </h1>
-        </section>
-
-<!--         <div class="pad margin no-print">
-          <div class="callout callout-info" style="margin-bottom: 0!important;">
-            <h4><i class="fa fa-info"></i> Informacija:</h4>
-            This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
-          </div>
-        </div> -->
-
         <!-- Main content -->
         <section class="invoice">
           <!-- title row -->
@@ -106,14 +87,4 @@
             </div><!-- /.col -->
           </div><!-- /.row -->
 
-          <!-- this row will not appear when printing -->
-          <div class="row no-print">
-            <div class="col-xs-12">
-              <a ng-click="print();" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              <button class="btn btn-success pull-right" ng-click="edit(data.id)" ng-hide="checkStatus() == 4" ><i class="fa fa-pencil-square-o"></i> Измени Сметка</button>
-            </div>
-          </div>
         </section><!-- /.content -->
-        <div class="clearfix"></div>
-      </div><!-- /.content-wrapper -->
-      </div>

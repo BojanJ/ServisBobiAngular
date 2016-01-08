@@ -24,36 +24,21 @@ angular.module('servisApp')
             $location.path('/viewItem/' + id);
         }
 
-
-            $scope.items = [{
-        name: "John Smith",
-        email: "j.smith@example.com",
-        dob: "1985-10-10"
-    }, {
-        name: "Jane Smith",
-        email: "jane.smith@example.com",
-        dob: "1988-12-22"
-    }, {
-        name: "Jan Smith",
-        email: "jan.smith@example.com",
-        dob: "2010-01-02"
-    }, {
-        name: "Jake Smith",
-        email: "jake.smith@exmaple.com",
-        dob: "2009-03-21"
-    }, {
-        name: "Josh Smith",
-        email: "josh@example.com",
-        dob: "2011-12-12"
-    }, {
-        name: "Jessie Smith",
-        email: "jess@example.com",
-        dob: "2004-10-12"
-    }];
-
-
         $scope.exportData = function () {
-            alasql('SELECT id as ID, fname as Ime, lname as Prezime, tel as Telefon, type as Tip, model as Model, issue as Problem, price as Cena, imei as IMEI, status as Status INTO XLSX("Report.xlsx",{headers:true}) FROM ?',[$scope.data]);
+
+            for (var i = 0; i < $scope.data.length; i++) {
+                if($scope.data[i].status == 1) {
+                    $scope.data[i].status = 'Прием';
+                } else if ($scope.data[i].status == 2) {
+                    $scope.data[i].status = 'На сервис';
+                } else if ($scope.data[i].status == 3) {
+                    $scope.data[i].status = 'Вратен од сервис';
+                } else if ($scope.data[i].status == 4) {
+                    $scope.data[i].status = 'Завршено';
+                }
+            };
+
+            alasql('SELECT id as ID, fname as Ime, lname as Prezime, tel as Telefon, type as Tip, model as Model, issue as Problem, price as Cena, imei as IMEI, status as Status INTO XLSX("IzvestajPrimeni.xlsx",{headers:true}) FROM ?',[$scope.data]);
         };
 
 

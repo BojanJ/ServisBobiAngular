@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name servisApp.controller:ViewitemCtrl
+ * @name servisApp.controller:PrintitemCtrl
  * @description
- * # ViewitemCtrl
+ * # PrintitemCtrl
  * Controller of the servisApp
  */
 angular.module('servisApp')
-  .controller('ViewitemCtrl', function ($scope, $routeParams, $http, $location) {
+  .controller('PrintitemCtrl', function ($scope, $routeParams, $http, $location, $rootScope) {
 
   	$scope.id = $routeParams.Id;
   	$scope.data = {};
@@ -25,15 +25,7 @@ angular.module('servisApp')
     	return $scope.data.status;
     }
 
-    $scope.print = function (){
 
-      $location.path('/printitem/' + $scope.id);
+    setTimeout(function(){ window.print(); $location.path('/'); }, 500);
 
-      
-    	
-    }
-
-    $scope.edit = function (id){
-    	$location.path('/edititem/' + $scope.id);
-    }
   });
