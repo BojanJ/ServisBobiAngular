@@ -34,6 +34,9 @@
               </p>
             </li>
             <li class="user-footer">
+              <div class="pull-left">
+                <a href="#/changepass" class="btn btn-default btn-flat">Промени лозинка</a>
+              </div>
               <div class="pull-right">
                 <a ng-click="logOut()" class="btn btn-default btn-flat">Одјави се</a>
               </div>
@@ -99,9 +102,14 @@
 		    </a>
 	    </li>
       <li class="header" ng-show="isAdmin">АДМИН</li>
-      	<li ng-class="{ active: isActive('/register')}" ng-show="isAdmin">
-	      	<a href="#/register">
-		    	<i class="fa fa-home"></i> <span>Додади корисник</span>
+        <li ng-class="{ active: isActive('/register')}" ng-show="isAdmin">
+          <a href="#/register">
+          <i class="fa fa-home"></i> <span>Додади корисник</span>
+        </a>
+      </li>
+      	<li ng-class="{ active: isActive('/resetpass')}" ng-show="isAdmin">
+	      	<a href="#/resetpass">
+		    	<i class="fa fa-unlock-alt"></i> <span>Рестартирај лозинка</span>
 		    </a>
 	    </li>
 	</ul>

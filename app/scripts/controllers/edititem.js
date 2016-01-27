@@ -57,20 +57,38 @@ angular.module('servisApp')
         $scope.data.status = $scope.data.status+1;
         $scope.data.modifiedBy = $scope.user;
 
-    	$http.put('http://api.janevski.info/api/ServisItems/'+ $scope.id, $scope.data).success(function(data){
+        $http.put('http://api.janevski.info/api/ServisItems/'+ $scope.id, $scope.data).success(function(data){
 
-    		toastr.success('Успешно променет статус');
+            toastr.success('Успешно променет статус');
                 $location.path('/main');
 
-    	}).error(function(data){
-    		toastr.error('Статусот не е променет');
-    	});
-
-
-
-
+        }).error(function(data){
+            toastr.error('Статусот не е променет');
+        });
 
     }
+
+    $scope.returnStatus = function (){
+
+        if ($scope.data.status != 1){
+
+        $scope.data.status = $scope.data.status-1;
+        $scope.data.modifiedBy = $scope.user;
+
+        $http.put('http://api.janevski.info/api/ServisItems/'+ $scope.id, $scope.data).success(function(data){
+
+            toastr.success('Успешно променет статус');
+                $location.path('/main');
+
+        }).error(function(data){
+            toastr.error('Статусот не е променет');
+        });
+
+        }
+
+    }
+
+
 
     $scope.save = function (){
 

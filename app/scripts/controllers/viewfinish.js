@@ -10,6 +10,53 @@
 angular.module('servisApp')
     .controller('ViewfinishCtrl', function($scope, $http, $route, authService, $location) {
 
+
+        $scope.signIn = 0;
+        $scope.servis = 0;
+        $scope.back = 0;
+        $scope.finished = 0;
+
+
+        $http.get('http://api.janevski.info/api/ServisItems').
+            success(function(data) {
+                $scope.data = data;
+
+                for (var i = data.length - 1; i >= 0; i--) {
+                    if(data[i].status == 1) {
+                        $scope.signIn ++;
+                    } else 
+
+                    if(data[i].status == 2) {
+                        $scope.servis ++;
+                    } else 
+
+                    if(data[i].status == 3) {
+                        $scope.back ++;
+                    } else 
+
+                    if(data[i].status == 4) {
+                        $scope.finished ++;
+                    }
+                };
+
+        $scope.groupedData = [
+            {'signIn': $scope.signIn,
+            'servis': $scope.servis,
+            'back': $scope.back,
+            'finished': $scope.finished}
+        ];
+
+            }).
+            error(function(data, status) {
+
+            });
+
+
+
+        $scope.exportgroupedData = function () {
+            alasql('SELECT signIn as Primeni, servis as NaServis, back as VrateniOdServis, finished as Zavrsheni INTO XLSX("IzvestajVkupen.xlsx",{headers:true}) FROM ?',[$scope.groupedData]);
+        };
+
         $http.get('http://api.janevski.info/api/ServisItems?type=4').
         success(function(data) {
             $scope.data = data;

@@ -38,6 +38,7 @@
 									</div>
 									</div><!-- /.box-body -->
 									<div class="box-footer">
+										<button type="button" ng-click="returnStatus()" ng-show="checkStatus() != 1"accesskey="" class="btn btn-info pull-left">Врати статус</button>
 										<button type="button" ng-click="changeStatus()" ng-show="checkStatus() == 1"accesskey="" class="btn btn-warning pull-right">Прати на сервис</button>
 										<button type="button" ng-click="changeStatus()" ng-show="checkStatus() == 2" class="btn btn-primary pull-right">Врати од сервис</button>
 										<button type="button" ng-click="changeStatus()" ng-show="checkStatus() == 3" class="btn btn-success pull-right">Завршено</button>

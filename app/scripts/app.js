@@ -92,6 +92,18 @@ angular
               templateUrl: 'views/reports.html',
               controller: 'ReportsCtrl'
             })
+            .when('/resetpass', {
+              templateUrl: 'views/resetpass.html',
+              controller: 'ResetpassCtrl'
+            })
+            .when('/resetpass', {
+              templateUrl: 'views/resetpass.html',
+              controller: 'ResetpassCtrl'
+            })
+            .when('/changepass', {
+              templateUrl: 'views/changepass.html',
+              controller: 'ChangepassCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
