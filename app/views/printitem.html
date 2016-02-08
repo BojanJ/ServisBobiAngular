@@ -15,10 +15,111 @@
               Од
               <address>
                 <strong>Сервис</strong><br>
-                Улица: <br>
-                1000 Скопје<br>
-                Телефон: (804) 123-5432<br>
-                Email: info@almasaeedstudio.com
+                Работно Време: Пон-Пет<br>
+                Телефон: 02/2464-530<br>
+                Телефон: 02/2401-148
+              </address>
+            </div><!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+              До
+              <address>
+                <strong>{{data.fname}} {{data.lname}}</strong><br>
+                Телефон: {{data.tel}}<br>
+                Email: {{data.email}}
+              </address>
+            </div><!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+              <b>Сметка #{{id}}</b><br>
+              <br>
+              <b>Статус:</b> <span ng-show="checkStatus() == 1" class="label label-info">Прием</span>
+                            <span ng-show="checkStatus() == 2" class="label label-warning">Сервис</span>
+                            <span ng-show="checkStatus() == 3" class="label label-primary">Вратено од сервис</span>
+                            <span ng-show="checkStatus() == 4" class="label label-success">Завршено</span>
+                          <br>
+              <b>Датум од:</b> {{data.date1 | date}}<br>
+              <b>Датум до:</b> {{data.date2 | date}}<br>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <!-- Table row -->
+          <div class="row">
+            <div class="col-xs-12 table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Тип</th>
+                    <th>Модел</th>
+                    <th>IMEI</th>
+                    <th>Cena</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{data.id}}</td>
+                    <td>{{data.type}}</td>
+                    <td>{{data.model}}</td>
+                    <td>{{data.imei}}</td>
+                    <td>{{data.price}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-xs-6">
+              <p class="lead">Опис:</p>
+              
+              <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                {{data.description}}
+              </p>
+            </div><!-- /.col -->
+            <!-- accepted payments column -->
+            <div class="col-xs-6 hidden-print">
+              <p class="lead">Забелешка:</p>
+              
+              <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                {{data.info}}
+              </p>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+          <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-xs-6">
+              Примил: ____________________
+            </div><!-- /.col -->
+            <!-- accepted payments column -->
+            <div class="col-xs-6 text-right">
+              Предал: ____________________
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+        </section><!-- /.content -->        
+
+        <section style="border-top: #999 2px dashed; margin-top: 20px; margin-bottom: 20px;"></section>
+
+        <!-- Main content -->
+        <section class="invoice">
+          <!-- title row -->
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="page-header">
+                <i class="fa fa-cogs"></i> Сервис
+                <!-- <small class="pull-right">Date: 2/10/2014</small> -->
+              </h2>
+            </div><!-- /.col -->
+          </div>
+          <!-- info row -->
+          <div class="row invoice-info">
+            <div class="col-sm-4 invoice-col">
+              Од
+              <address>
+                <strong>Сервис</strong><br>
+                Работно Време: Пон-Пет<br>
+                Телефон: 02/2464-530<br>
+                Телефон: 02/2401-148
               </address>
             </div><!-- /.col -->
             <div class="col-sm-4 invoice-col">
@@ -74,7 +175,7 @@
               <p class="lead">Опис:</p>
               
               <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                {{data.description}}
               </p>
             </div><!-- /.col -->
             <!-- accepted payments column -->
@@ -82,8 +183,18 @@
               <p class="lead">Забелешка:</p>
               
               <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                {{data.info}}
               </p>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+          <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-xs-6">
+              Примил: ____________________
+            </div><!-- /.col -->
+            <!-- accepted payments column -->
+            <div class="col-xs-6 text-right">
+              Предал: ____________________
             </div><!-- /.col -->
           </div><!-- /.row -->
 
